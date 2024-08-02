@@ -1,0 +1,54 @@
+{
+  "manifest_version": 3,
+  "name": "Vue crx template",
+  "description": "A simple template for Chrome Extension (MV3) with Vite, Vue and Typescript",
+  "version": "0.0.1",
+  "permissions": [
+    "notifications",
+    "bookmarks",
+    "contextMenus",
+    "storage",
+    "unlimitedStorage",
+    "webRequest",
+    "offscreen"
+  ],
+  "action": {
+    "default_popup": "src/popup/index.html",
+    "default_icon": {
+      "16": "icon-16.png"
+    }
+  },
+  "options_page": "src/options/index.html",
+  "icons": {
+    "16": "icon-16.png",
+    "48": "icon-48.png",
+    "128": "icon-128.png"
+  },
+  "background": {
+    "service_worker": "src/background/service-worker.ts"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": [
+        "src/assets/js/jquery-3.3.1.min.js",
+        "src/content/content.ts"]
+    },
+    {
+      "matches": ["<all_urls>"],
+      "js": ["src/content/pluginPanel.ts"],
+      "run_at": "document_start"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "src/*",
+        "icon-48.png"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
+    }
+  ]
+}

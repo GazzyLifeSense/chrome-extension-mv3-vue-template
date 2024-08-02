@@ -1,0 +1,186 @@
+*{
+  box-sizing: border-box;
+}
+
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px white inset !important;
+}
+
+:-webkit-autofill {
+  transition: background-color 5000s ease-in-out 0s !important;
+}
+
+ul,li {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+a,
+a:link,
+a:visited {
+  text-decoration: none;
+  color: @primary-color;
+}
+
+.underline_dotted {
+  padding-bottom: 2px;
+  cursor: pointer;
+  border-bottom: 1px dotted #999;
+}
+
+// =================================
+// ==============nprogress==========
+// =================================
+#nprogress {
+  pointer-events: none;
+
+  .bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99999;
+    width: 100%;
+    height: 2px;
+    background-color: @primary-color;
+    opacity: 0.75;
+  }
+}
+
+li {
+  list-style: none;
+}
+
+.ant-tabs-tab-btn {
+  font-weight: 500;
+  font-size: @font-size-base;
+  letter-spacing: 0;
+  text-align: center;
+  line-height: 24px;
+}
+
+a:hover {
+  color: @primary-color;
+}
+
+.ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: @primary-color;
+}
+
+.nowrap_ellipsis {
+  white-space: break-spaces;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  display: -webkit-box;
+  word-break: break-all;
+  /* 或者是 -webkit-inline-box */
+  -webkit-line-clamp: 1;
+  /* 能够显示的最大行数 */
+  -webkit-box-orient: vertical;
+  /* 将盒子排列方向设置为纵向 */
+  cursor: pointer;
+}
+
+.flex_layout {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.flex_center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex_c_center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex_column_end {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.flex_between {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.primary-color {
+  color: @primary-color;
+}
+
+.ant-spin-nested-loading {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  .ant-spin-dot {
+    font-size: 20px;
+  }
+  .ant-spin-container {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.text-primary {
+  color: @primary-color;
+}
+
+.text-line-2 {
+  white-space: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.text-line-3 {
+  white-space: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+.btn-disabled-style {
+  border-color: #d9d9d9 !important;
+  color: rgba(0, 0, 0, 0.25) !important;
+  background-color: rgba(0, 0, 0, 0.04) !important;
+  box-shadow: none !important;
+}
+
+// 层级
+&.ant-modal-wrap {
+  z-index: 2000 !important;
+}
+
+&.ant-popover {
+  z-index: 2005;
+}
+
+&.ant-select-dropdown,
+&.ant-dropdown {
+  z-index: 2006 !important;
+}
+
+&.ant-tooltip {
+  z-index: 2007;
+}
+
+&.ant-message {
+  z-index: 9999;
+}

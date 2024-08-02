@@ -1,0 +1,72 @@
+// 排序列居中 （临时）
+.ant-table-wrapper {
+  .ant-image-img {
+    object-fit: contain;
+    height: 100%;
+  }
+
+  .ant-table-cell {
+    color: #333;
+    font-family: PingFang SC;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    padding: 10px 8px !important;
+    vertical-align: middle;
+  }
+
+  .ant-table-thead {
+    .ant-table-cell {
+      line-height: 1;
+    }
+  }
+
+  .ant-table:has(.ant-table-column-sorters) {
+    .ant-table-column-sorters {
+      justify-content: center;
+
+      .ant-table-column-title {
+        flex: none;
+      }
+    }
+
+    .ant-table-cell[style*='text-align: right;'] {
+      text-align: center !important;
+    }
+
+  }
+}
+
+.ant-table-thead th {
+  padding: 0 8px !important;
+  line-height: 44px;
+
+  &::before {
+    width: 0 !important;
+  }
+}
+
+tr:last-child td,
+tr:last-child th {
+  padding: 16px;
+  vertical-align: middle;
+}
+
+// 排序箭头对齐
+.ant-table-column-sorter {
+  display: flex;
+  align-items: center;
+}
+
+// 鼠标经过行背景色
+[class*=css-dev-only-do-not-override-].ant-table-wrapper .ant-table-tbody>tr.ant-table-row-selected:hover>td.ant-table-cell {
+  background: #fafafa !important;
+}
+
+.ant-table-wrapper .ant-table-tbody>tr.ant-table-row-selected:hover>td.ant-table-cell {
+  background: #fafafa !important;
+}
+
+.ant-table-row .ant-table-row-selected:hover>td.ant-table-cell {
+  background: #fafafa !important;
+}

@@ -1,0 +1,54 @@
+.ant-input {
+  font-size: @font-size-base;
+
+  &-focused {
+    border-color: @primary-color !important;
+    box-shadow: none !important;
+  }
+
+  &:hover,
+  &:focus {
+    border-color: @primary-color !important;
+    box-shadow: none !important;
+  }
+
+  &-affix-wrapper-focused {
+    border-color: @primary-color !important;
+    box-shadow: none !important;
+  }
+
+  &-affix-wrapper {
+    &:hover,
+    &:focus {
+      border-color: @primary-color !important;
+      box-shadow: none !important;
+    }
+  }
+}
+
+.ant-input-number {
+  &:hover {
+    border-color: @primary-color;
+    overflow: hidden;
+  }
+
+  &:focus {
+    border-color: @primary-color !important;
+    overflow: hidden !important;
+  }
+}
+
+.ant-input-number-handler:hover .ant-input-number-handler-down-inner {
+  color: @primary-color;
+}
+
+.ant-input-number-handler:hover .ant-input-number-handler-up-inner {
+  color: @primary-color;
+}
+
+.ant-input-number-focused {
+  box-shadow: none;
+  border-right-width: 1px !important;
+  border-color: @primary-color;
+  overflow: hidden !important;
+}

@@ -1,0 +1,71 @@
+.ant-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  text-shadow: none;
+  box-shadow: none;
+  font-size: @font-size-base;
+
+  &.ant-btn-dashed {
+    border: 1px solid @primary-color;
+    color: @primary-color;
+  }
+
+  &[disabled] {
+    text-shadow: none !important;
+    box-shadow: none !important;
+  }
+
+  &:hover,
+  &:focus {
+    border-color: @primary-color;
+    color: @primary-color;
+  }
+
+  &-link {
+    border-color: transparent;
+    color: @primary-color;
+
+    &:hover,
+    &:focus {
+      border-color: transparent;
+      color: @primary-color;
+    }
+  }
+
+  &-primary {
+    background-color: @primary-color;
+    border-color: @primary-color;
+    color: white;
+
+    &:hover,
+    &:focus {
+      background-color: @primary-color;
+      border-color: @primary-color;
+      color: white;
+    }
+
+    &.ant-btn-background-ghost {
+      border-color: @primary-color;
+      color: @primary-color;
+    }
+  }
+
+  &.ant-btn-background-ghost {
+    &:hover,
+    &:focus {
+      border-color: @primary-color;
+      color: @primary-color;
+    }
+  }
+}
+
+// 去除按钮水波纹
+[ant-click-animating-without-extra-node='true']::after {
+  display: none;
+}
+
+[class*='css-'].ant-btn:not(:disabled):focus-visible {
+  outline: none;
+}

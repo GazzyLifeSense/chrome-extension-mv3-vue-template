@@ -1,0 +1,132 @@
+{
+  "json.schemas": [
+    {
+      "fileMatch": ["manifest.json"],
+      "url": "https://json.schemastore.org/chrome-manifest.json"
+    }
+  ],
+  /* ============================================ 编辑器方面配置 ============================================ */
+  // 在保存时运行的代码操作类型。
+  "editor.codeActionsOnSave": {
+    "source.fixAll.stylelint": "explicit"
+  },
+  // 在保存时格式化文件。格式化程序必须可用，延迟后文件不能保存，并且编辑器不能关闭。
+  "editor.formatOnSave": true,
+  // 控制编辑器是否自动格式化粘贴的内容。格式化程序必须可用，并且能针对文档中的某一范围进行格式化。
+  "editor.formatOnPaste": true,
+  /* ============================================ 扩展设置 ============================================ */
+  // 高亮标记TODO行
+  "todohighlight.isEnable": true,
+  // // 激活TODO树的高亮
+  "todo-tree.highlights.enabled": true,
+  // 配置默认TODO显示
+  "todo-tree.highlights.defaultHighlight": {
+    "type": "text-and-comment"
+  },
+  // 定义TODO标签的列表
+  "todo-tree.general.tags": [
+    "TODO",
+    "RESOLVE",
+    "BUG",
+    "FIXME"
+  ],
+  // 配置自定义TODO显示
+  "todo-tree.highlights.customHighlight": {
+    "TODO": {
+      "foreground": "#2f3542",
+      "background": "#f6b93b",
+      "iconColour": "#f39c12",
+      "icon": "issue-opened",
+      "type": "line"
+    },
+    "FIXME": {
+      "foreground": "#2f3542",
+      "background": "#ffb6c1",
+      "iconColour": "#ffb6c1",
+      "icon": "fix",
+      "type": "line"
+    },
+    "BUG": {
+      "foreground": "#2f3542",
+      "background": "#e55039",
+      "iconColour": "#e55039",
+      "icon": "bug",
+      "type": "line"
+    },
+    "RESOLVE": {
+      "foreground": "#2f3542",
+      "background": "#7bed9f",
+      "iconColour": "#2ed573",
+      "icon": "resolve",
+      "type": "line"
+    }
+  },
+  /* ============================================ 语言辅助 ============================================ */
+  //  Html文件格式化设置【针对某种语言，配置替代编辑器设置】
+  "[html]": {
+    // 定义一个默认格式化程序, 该格式化程序优先于所有其他格式化程序设置。必须是提供格式化程序的扩展的标识符(扩展ID)
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  // JS文件格式化设置【针对某种语言，配置替代编辑器设置】
+  "[javascript]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  // Markdown格式化设置【针对某种语言，配置替代编辑器设置】
+  "[markdown]": {
+    // 在保存时格式化文件。格式化程序必须可用
+    "editor.formatOnSave": true,
+    "editor.renderWhitespace": "all",
+    "editor.quickSuggestions": {
+      "other": true,
+      "comments": true,
+      "strings": true
+    },
+    "editor.acceptSuggestionOnEnter": "on"
+  },
+  // Vue格式化设置【针对某种语言，配置替代编辑器设置】
+  "[vue]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  // TypeScript格式化设置【针对某种语言，配置替代编辑器设置】
+  "[typescript]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  // JSON格式化设置【针对某种语言，配置替代编辑器设置】
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  // 用于运行脚本的程序包管理器。
+  "npm.packageManager": "pnpm",
+  // 是否激活Eslint的格式化
+  "eslint.format.enable": true,
+  // 表示ESLint将检查哪些语言
+  "eslint.validate": [
+    "javascript",
+    "vue",
+    "html",
+    "typescript"
+  ],
+  // 设置路径别名 @ = src
+  "path-intellisense.mappings": {
+    "@": "${workspaceRoot}/src"
+  },
+  // 控制文件折叠
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.expand": false,
+  "explorer.fileNesting.patterns": {
+    "*.ts": "$(capture).test.ts, $(capture).test.tsx",
+    "*.tsx": "$(capture).test.ts, $(capture).test.tsx",
+    "*.env": "$(capture).env.*",
+    "CHANGELOG.md": "CHANGELOG*",
+    "package.json": "pnpm-lock.yaml,pnpm-workspace.yaml,LICENSE,.gitattributes,.gitignore,.gitpod.yml,CNAME,README*,.npmrc,.browserslistrc",
+    ".eslintrc.js": ".eslintignore,.prettierignore,.stylelintignore,.commitlintrc.js,.prettierrc.js,.stylelintrc.js"
+  },
+  "cSpell.words": [
+    "Datas",
+    "Echarts",
+    "noss",
+    "pinia",
+    "sprefix",
+    "unhit"
+  ]
+}

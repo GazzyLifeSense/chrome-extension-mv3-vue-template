@@ -1,0 +1,42 @@
+.ant-pagination-options-quick-jumper {
+    display: inline-flex;
+    align-items: center;
+}
+
+.ant-pagination-item {
+    a {
+        color: black;
+
+        &:hover {
+            color: black;
+        }
+    }
+}
+
+.ant-pagination-item,
+.ant-pagination-options-quick-jumper input {
+    &:hover {
+        border-color: @primary-color;
+    }
+
+    &:focus {
+        background-color: #fff;
+        border-color: @primary-color;
+        box-shadow: none;
+    }
+}
+
+.ant-pagination-prev,
+.ant-pagination-next {
+    &:hover {
+        .ant-pagination-item-link:not([disabled]) {
+            color: @primary-color;
+            border-color: @primary-color;
+        }
+
+    }
+}
+
+.ant-pagination-item-active {
+    border-color: @primary-color;
+}
