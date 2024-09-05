@@ -14,7 +14,6 @@
     "prettier": "prettier --write '**/*.{js,jsx,ts,tsx,json,css,scss,md,vue}'"
   },
   "dependencies": {
-    "@ant-design/icons-vue": "^6.1.0",
     "ant-design-vue": "~4.0.7",
     "cheerio": "1.0.0-rc.12",
     "crypto-js": "^4.2.0",

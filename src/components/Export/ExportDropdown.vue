@@ -38,12 +38,10 @@
 
 <script lang="ts" setup>
   import ExportExcel from '@/components/Export/ExportExcel.vue';
-  import { Dropdown, Menu, Button, Spin } from 'ant-design-vue';
+  import { Dropdown, Menu } from 'ant-design-vue';
   import ExportCsv from '@/components/Export/ExportCsv.vue';
-  import { LoadingOutlined } from '@ant-design/icons-vue';
-  import { AntColor } from '@/design/antColor';
   import ExportJson from './ExportJson.vue';
-  import { ref, computed, h } from 'vue';
+  import { ref, computed } from 'vue';
 
   const props = defineProps({
     data: {
@@ -55,13 +53,6 @@
       type: Array,
       default: () => [],
     }
-  });
-
-  const indicator = h(LoadingOutlined, {
-    style: {
-      fontSize: '12px',
-      color: AntColor.primary,
-    },
   });
 
   const defaultOption = [

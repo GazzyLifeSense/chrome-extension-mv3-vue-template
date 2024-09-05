@@ -22,20 +22,17 @@
           <Tooltip
             class="func-btn bg-[rgba(255,255,255,0.2)] cursor-pointer"
             title="全屏模式"
-            ><ArrowsAltOutlined
-              v-if="!isFullScreen"
-              class="h-full flex justify-center items-center"
-              @click="switchFullScreen" /><ShrinkOutlined
-              v-else
-              class="h-full flex justify-center items-center"
-              @click="switchFullScreen"
-          /></Tooltip>
+            >
+            <svg t="1725501207729" class="icon h-full flex justify-center items-center"
+              @click="switchFullScreen" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4454" width="32" height="32"><path d="M470.624 553.376a32 32 0 0 1 2.656 42.24l-2.656 3.008L269.28 800l145.984 0.032a32 32 0 0 1 31.776 28.256l0.224 3.744a32 32 0 0 1-28.288 31.776l-3.712 0.224H192l-2.4-0.096-4.032-0.544-3.552-0.96-3.552-1.408-3.136-1.664-3.072-2.144-2.88-2.56a32.32 32.32 0 0 1-3.104-3.584l-2.272-3.52-1.728-3.648-1.12-3.36-0.96-4.8L160 832v-224.128a32 32 0 0 1 63.776-3.712l0.224 3.712-0.032 146.848 201.408-201.344a32 32 0 0 1 45.248 0zM608.736 160H832l2.4 0.096 4.032 0.544 3.552 0.96 3.552 1.408 3.136 1.664 3.072 2.144 2.88 2.56c1.152 1.12 2.176 2.336 3.104 3.584l2.272 3.52 1.728 3.648 1.12 3.36 0.96 4.8L864 192v224.128a32 32 0 0 1-63.776 3.712L800 416.128v-146.88l-201.376 201.376a32 32 0 0 1-47.904-42.24l2.656-3.008L754.688 224h-145.92a32 32 0 0 1-31.808-28.256L576.736 192a32 32 0 0 1 28.288-31.776L608.736 160z" fill="#ffffff" p-id="4455"></path></svg>
+          </Tooltip>
           <!-- 隐藏面板 -->
           <Tooltip
             class="func-btn bg-[rgba(255,255,255,0.2)] cursor-pointer"
             title="关闭"
-            ><CloseOutlined class="h-full flex justify-center items-center" @click="closePanel"
-          /></Tooltip>
+            >
+            <svg t="1725501379690" class="icon h-full flex justify-center items-center" @click="closePanel" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4378" width="32" height="32"><path d="M512 466.944l233.472-233.472a31.744 31.744 0 0 1 45.056 45.056L557.056 512l233.472 233.472a31.744 31.744 0 0 1-45.056 45.056L512 557.056l-233.472 233.472a31.744 31.744 0 0 1-45.056-45.056L466.944 512 233.472 278.528a31.744 31.744 0 0 1 45.056-45.056z" fill="#ffffff" p-id="4379"></path></svg>
+          </Tooltip>
         </div>
       </template>
       <template v-for="func of funcList" :key="func.key">
@@ -61,7 +58,6 @@
 <script lang="ts" setup>
   import { inject, ref } from 'vue';
   import { Tabs, Tooltip } from 'ant-design-vue';
-  import { ArrowsAltOutlined, ShrinkOutlined, CloseOutlined } from '@ant-design/icons-vue';
   import { usePanelSize } from '@/hooks/useAutoSize.ts';
   import { getAssetsUrl } from '@/utils/public.ts'
 
