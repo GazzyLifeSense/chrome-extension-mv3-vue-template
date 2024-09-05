@@ -78,15 +78,18 @@ function usePanelSize({
   // 切换全屏、退出全屏
   async function switchFullScreen() {
     if (isFullScreen.value) {
-      document.exitFullscreen();
-      height.value = initialHeight;
+      document.exitFullscreen().then(()=>{
+        height.value = initialHeight;
+        isFullScreen.value = !isFullScreen.value;
+      })
     } else {
       const rootEle = document.documentElement;
       rootEle.requestFullscreen().then(() => {
-        height.value = window.screen.availHeight;
+        height.value = window.screen.height
+        isFullScreen.value = !isFullScreen.value;
       });
     }
-    isFullScreen.value = !isFullScreen.value;
+    
   }
 
   return { height, dragStatus, isFullScreen, startDrag, endDrag, switchFullScreen };
