@@ -10,7 +10,7 @@
         <div
           v-for="func of funcList"
           :key="func.key"
-          class="w-[109px] p-[10px] flex justify-start items-center gap-[10px] cursor-pointer hover:bg-[#FA541c1a]"
+          class="p-[10px] flex justify-start items-center gap-[10px] cursor-pointer hover:bg-[#FA541c1a]"
           @click="emits('showPanel', func.key)"
         >
           <img :src="getAssetsUrl(func.icon || 'icon-128.png')" width=16 height=16 />
@@ -18,16 +18,18 @@
         </div>
       </div>
     </template>
-    <div
-      class="!h-[42px] fixed right-0 flex justify-center items-center gap-[10px] vct-panel-container"
-      :class="dragStatus ? 'cursor-grabbing' : 'hover:cursor-grab'"
-      :style="{ top: fixedTop + 'px' }"
-      @mousedown.prevent="startDrag"
-    >
-      <div class="vct-panel-logo flex justify-center items-center overflow-hidden">
-        <img :src="getAssetsUrl('icon-128.png')" width=40 height=40 />
+    <template #default>
+      <div
+        class="!h-[42px] fixed right-0 flex justify-center items-center gap-[10px] vct-panel-container"
+        :class="dragStatus ? 'cursor-grabbing' : 'hover:cursor-grab'"
+        :style="{ top: fixedTop + 'px' }"
+        @mousedown.prevent="startDrag"
+      >
+        <div class="vct-panel-logo flex justify-center items-center overflow-hidden">
+          <img :src="getAssetsUrl('icon-128.png')" width=40 height=40 />
+        </div>
       </div>
-    </div>
+    </template>
   </Popover>
 </template>
 

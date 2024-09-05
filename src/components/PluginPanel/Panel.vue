@@ -38,7 +38,9 @@
           /></Tooltip>
         </div>
       </template>
-      <Tabs.TabPane v-for="func of funcList" :key="func.key" :tab="func.name" />
+      <template v-for="func of funcList" :key="func.key">
+        <Tabs.TabPane v-if="func.component" :tab="func.name" :key="func.key"/>
+      </template>
     </Tabs>
     <div class="panel-content">
       <component
@@ -82,15 +84,24 @@
     currentEvent.value = 'active';
   }
 
-  function showPanel(key) {
-    if (key) {
-      activeKey.value = key;
-    } else if (!activeKey.value) {
-      const firstKey = Object.keys(props.funcList || {})?.[0];
-      if (firstKey) activeKey.value = firstKey;
+  function showPanel(key: string) {
+    const funcObj = funcList[key]
+    // tab
+    if(funcObj.component){
+      if (key) {
+        activeKey.value = key;
+      } else if (!activeKey.value) {
+        const firstKey = Object.keys(funcList || {})?.[0];
+        if (firstKey) activeKey.value = firstKey;
+      }
+      panelVisible.value = true;
+      if (currentEvent.value != 'firstLoaded') currentEvent.value = 'active';
     }
-    panelVisible.value = true;
-    if (currentEvent.value != 'firstLoaded') currentEvent.value = 'active';
+    // func
+    else if(funcObj.func){
+      funcObj.func?.()
+    }
+    
   }
   function closePanel() {
     panelVisible.value = false;
