@@ -13,11 +13,14 @@
     "skipLibCheck": true,
     "composite": true,
     "allowSyntheticDefaultImports": true,
-    "isolatedModules": true
+    "isolatedModules": true,
+    "allowJs": true,
+    "suppressImplicitAnyIndexErrors": false
   },
   "exclude": ["build", "node_modules", "dist"],
   "include": [
     "src/**/*.ts",
+    "src/**/*.js",
     "src/**/*.d.ts",
     "src/**/*.tsx",
     "src/**/*.vue",

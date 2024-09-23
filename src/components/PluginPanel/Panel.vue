@@ -110,7 +110,7 @@
 <style lang="less" scoped>
   .panel-container {
     z-index: 2001;
-    .panel-header { height: 44px; padding: 0 20px; background-color: @primary-color;
+    .panel-header { height: 44px; padding: 0 20px; background: @primary-header-bg;
       :deep {
         .ant-tabs-nav {
           margin-bottom: 0;

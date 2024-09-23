@@ -6,7 +6,7 @@ import Entry from '@/popup/views/entry/entry.vue'
 import Bookmark from '@/popup/views/bookmark/bookmark.vue'
 import Tool from '@/popup/views/tool/tool.vue'
 
-const routes = [
+const routes: any[] = [
     // // URL未包含路由hash，则跳转至Home页面
     // { path: '/', redirect: '/home', exact: true },
     // 匹配 #/，指向Entry页面
@@ -47,7 +47,7 @@ const routes = [
     },
 ]
 
-const router = createRouter({
+const router: any = createRouter({
     history: createWebHashHistory(),
     routes,
 })

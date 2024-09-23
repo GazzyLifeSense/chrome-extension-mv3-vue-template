@@ -1,4 +1,4 @@
-export enum AntColor {
+export enum StyleColor {
   primary = '#FA541C',
   red = '#ff5655',
   textBase = '#333',
@@ -7,7 +7,7 @@ export enum AntColor {
   gray = '#999',
   disabled = '#888c8cb5',
   borderColor = '#D9D9D9',
-  green = '#52C41A', // 添加绿色定义
+  green = '#52C41A',
 }
 
 export enum EchartsColor {

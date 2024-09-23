@@ -22,7 +22,7 @@
     node: bookmarkNode
   }>()
 
-  function jumpTo(url) {
+  function jumpTo(url: string | any) {
     window.open(url, '_blank')
   }
 </script>

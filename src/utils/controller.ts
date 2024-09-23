@@ -6,9 +6,9 @@
     cb: 队列完成回调
 */
 export async function limitRequest(
-  q,
-  max,
-  handler,
+  q: any[],
+  max: number,
+  handler: Function,
   {
     onStart,
     onFinish,
@@ -24,7 +24,7 @@ export async function limitRequest(
   function runIt() {
     request
       .next()
-      .value.then(async _ => {
+      .value.then(async (_: any) => {
         received++;
         if (sent < q.length) {
           await counter();
@@ -33,7 +33,7 @@ export async function limitRequest(
           onFinish && onFinish();
         }
       })
-      .catch(async err => {
+      .catch(async (err: any) => {
         err && console.log(err);
         received++;
         if (sent < q.length) {
@@ -59,7 +59,7 @@ export async function limitRequest(
 }
 
 // 请求生成器
-function* generatorRequest(q, handler) {
+function* generatorRequest(q: any[], handler: Function) {
   let t = 0;
   while (true) {
     yield handler(q[t++]) as any;
@@ -75,7 +75,7 @@ function* generatorRequest(q, handler) {
 */
 export function insertData(
   data: Array<any>,
-  value,
+  value: any,
   { key = 'id', action = 'push', cb = () => {} } = {}
 ) {
   if (!Array.isArray(data) || !value || typeof value != 'object' || !value[key]) return;

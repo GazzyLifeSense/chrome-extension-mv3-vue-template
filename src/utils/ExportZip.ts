@@ -1,3 +1,4 @@
+// @ts-nocheck
 import JSZip from 'jszip';
 import FileSaver from 'file-saver';
 import { blobFromImage } from '@/utils/img.ts';

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import Excel from 'exceljs';
 import { saveAs } from 'file-saver';
 import http from 'http';
@@ -478,7 +479,7 @@ export class GExportExcel {
    * @return xlsx | csv
    */
 
-  constructor(options) {
+  constructor(options: any) {
     const { sheetName, data } = options;
     if (!data) {
       throw Error('请提供原始数据');
@@ -498,7 +499,7 @@ export class GExportExcel {
    * @description 匹配是否为图片
    * @param {String} _val
    */
-  GRegexp(_val) {
+  GRegexp(_val: string) {
     const _regexp = /^https?.*(jpg|jpeg|png|gif)$/gi;
     if (_regexp.test(_val)) {
       return true;

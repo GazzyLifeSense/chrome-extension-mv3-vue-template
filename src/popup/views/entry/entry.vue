@@ -1,4 +1,4 @@
-<script setup>
+<script lang="ts" setup>
 import Nav from '@/popup/components/nav/nav.vue'
 </script>
 

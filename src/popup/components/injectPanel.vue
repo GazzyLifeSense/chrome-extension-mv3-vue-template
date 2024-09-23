@@ -28,7 +28,7 @@
     injectRawScript,
     injectStyle,
     injectRawStyle,
-  } from '@/utils/inject'
+  } from '@/utils/inject.ts'
   import { ref } from 'vue'
   const scriptUrl = ref()
   const scriptText = ref()

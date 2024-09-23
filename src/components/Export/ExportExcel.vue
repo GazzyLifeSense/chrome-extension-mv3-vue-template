@@ -54,7 +54,7 @@
 
   // 图片链接处理
   const getImg = computed(() => {
-    return imgUrl => {
+    return (imgUrl: string) => {
       if (imgUrl) {
         imgUrl = imgUrl.replace('http:', 'https:');
         if (imgUrl.indexOf('//') === -1) imgUrl = 'https://' + imgUrl;
@@ -79,15 +79,15 @@
   defineExpose({ exportData });
 
   function exportData(
-    data,
-    { filename, withImg, lineHeight, autoWidth = true, autoHeight = true }
+    data: any,
+    { filename, withImg, lineHeight, autoWidth = true, autoHeight = true }: any
   ) {
     return new Promise((resolve, reject) => {
       if (!loading.value && columnTitles.value.length && data.length) {
         loading.value = true;
         const _filename = props.filename || filename;
         const filenameText = getExportFileName(_filename);
-        const params = {
+        const params: any = {
           header: columnTitles.value,
           data: getData(data),
           filename: filenameText,
@@ -114,7 +114,7 @@
             loading.value = false;
             resolve(true);
           },
-          err => {
+          (err: any) => {
             loading.value = false;
             reject(err);
           }
@@ -125,12 +125,12 @@
       }
     });
   }
-  function getData(data) {
+  function getData(data: any) {
     let result = [];
     if (data.length > 0 && columnDataIndexes.value.length > 0) {
       result = data
-        .filter(ele => Object.keys(ele).length > 0)
-        .map((row, rowIndex) =>
+        .filter((ele: any) => Object.keys(ele).length > 0)
+        .map((row: any, rowIndex: number) =>
           columnDataIndexes.value.map((key, keyIndex) => {
             const index = props.index ? keyIndex - 1 : keyIndex;
             if (key === 'index') {
@@ -159,7 +159,7 @@
     }
     return result;
   }
-  function gExcel(params) {
+  function gExcel(params: any) {
     return new GExportExcel(params).startRun();
   }
 </script>

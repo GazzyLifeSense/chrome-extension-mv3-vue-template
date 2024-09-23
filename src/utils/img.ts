@@ -1,7 +1,7 @@
 import FileSaver from 'file-saver';
 import { get, getExportFileName } from '@/utils/public.ts';
 
-export function calculateImageSizes(params) {
+export function calculateImageSizes(params: any) {
   // 计算实际尺寸
   const canvasActual = params.enableCanvas ? params.canvas : null;
   const imgActual = handleImgActualSizes(params);
@@ -66,7 +66,7 @@ function handleImgActualSizes(params: any) {
   }
   return result;
 }
-function handleAdaptiveSizes(width, height, boxWidth, boxHeight) {
+function handleAdaptiveSizes(width: number, height: number, boxWidth: number, boxHeight: number) {
   let result: any = null;
   if (width && height && boxWidth && boxHeight) {
     let adaptiveWidth, adaptiveHeight;
@@ -86,7 +86,7 @@ function handleAdaptiveSizes(width, height, boxWidth, boxHeight) {
   }
   return result;
 }
-function handleImgAdaptiveSizes(imgActual, canvasActual, canvasAdaptive, box, enableCanvas) {
+function handleImgAdaptiveSizes(imgActual: any, canvasActual: any, canvasAdaptive: any, box: any, enableCanvas: any) {
   let result: any = null;
   let adaptiveWidth, adaptiveHeight;
   if (imgActual) {
@@ -114,7 +114,7 @@ function handleImgAdaptiveSizes(imgActual, canvasActual, canvasAdaptive, box, en
   return result;
 }
 
-export function base64FromImageUrl(url, imgType?) {
+export function base64FromImageUrl(url: string, imgType?: string) {
   return new Promise((resolve, reject) => {
     if (url) {
       const image = new Image();
@@ -139,7 +139,7 @@ export function base64FromImageUrl(url, imgType?) {
   });
 }
 
-export function blobFromImage(params, imgType?) {
+export function blobFromImage(params: any, imgType?: string) {
   return new Promise((resolve, reject) => {
     if (params.url) {
       const image = new Image();
@@ -173,10 +173,10 @@ export function blobFromImage(params, imgType?) {
   });
 }
 
-export function downloadImage(params, fileName?, imgType?) {
+export function downloadImage(params: any, fileName?: string, imgType?: string) {
   return new Promise((resolve, reject) => {
     if (params.url) {
-      blobFromImage(params, imgType).then(blob => {
+      blobFromImage(params, imgType).then((blob: any) => {
         const filetype = params.url.split('.').pop();
         if (!fileName) fileName = params.url.split('/').pop().split('.')[0];
         const _folderName = getExportFileName(fileName);
@@ -190,7 +190,7 @@ export function downloadImage(params, fileName?, imgType?) {
   });
 }
 
-export function blobFromImageUrl(url) {
+export function blobFromImageUrl(url: string) {
   return new Promise((resolve, reject) => {
     fetch(url)
       .then(res => res.blob())
@@ -199,7 +199,7 @@ export function blobFromImageUrl(url) {
   });
 }
 
-export function fileFromImageUrl(url) {
+export function fileFromImageUrl(url: string) {
   return new Promise((resolve, reject) => {
     blobFromImageUrl(url)
       .then((blob: any) => {
@@ -210,7 +210,7 @@ export function fileFromImageUrl(url) {
   });
 }
 
-export function bufferFromImageUrl(url, decode = false) {
+export function bufferFromImageUrl(url: string, decode = false) {
   return new Promise((resolve, reject) => {
     fetch(url)
       .then(res => res.arrayBuffer())
@@ -225,7 +225,7 @@ export function bufferFromImageUrl(url, decode = false) {
   });
 }
 
-export function binaryFromImageUrl(url) {
+export function binaryFromImageUrl(url: string) {
   return new Promise((resolve, reject) => {
     bufferFromImageUrl(url)
       .then((buffer: any) => {
@@ -236,7 +236,7 @@ export function binaryFromImageUrl(url) {
   });
 }
 
-export function base64UriFromBlob(blob) {
+export function base64UriFromBlob(blob: Blob) {
   return new Promise(resolve => {
     const reader = new FileReader();
     reader.readAsDataURL(blob);
@@ -250,7 +250,7 @@ export function base64UriFromBlob(blob) {
   });
 }
 
-export function base64UriFromImageUrl(url) {
+export function base64UriFromImageUrl(url: string) {
   return new Promise(resolve => {
     blobFromImageUrl(url)
       .then((blob: any) => {
@@ -265,11 +265,11 @@ export function base64UriFromImageUrl(url) {
   });
 }
 
-export function blobFromImageSplicing(images) {
+export function blobFromImageSplicing(images: any) {
   return new Promise((resolve, reject) => {
     if (images && images.length) {
       Promise.all(
-        images.map(ele => {
+        images.map((ele: any) => {
           return new Promise(resolve => {
             const img = new Image();
             img.crossOrigin = 'Anonymous';

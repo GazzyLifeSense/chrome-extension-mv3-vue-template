@@ -66,9 +66,9 @@
     return findObjectByType(defaultOption, props.options);
   });
 
-  function findObjectByType(arr, targetTypes) {
+  function findObjectByType(arr: any, targetTypes: any[]) {
     if (!targetTypes?.length) return arr;
-    return arr.filter(item => targetTypes.includes(item.type));
+    return arr.filter((item: any) => targetTypes.includes(item.type));
   }
 
   // ref

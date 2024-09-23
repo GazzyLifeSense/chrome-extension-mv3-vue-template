@@ -1,4 +1,4 @@
-
+// @ts-nocheck
 // 将商品详情对象转换为GoogleSheetAPI接受的数据类型[[value1,value2,...],[value1,value2, ...]]
 export function formatGoogleSheetData(data, column) {
   const columnDataIndexes = column.map((ele: any) => ele.dataIndex);

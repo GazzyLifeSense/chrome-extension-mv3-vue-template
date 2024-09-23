@@ -45,7 +45,7 @@
     const auth = searchParams.get('auth');
     const code = searchParams.get('code');
     if (auth && code && ['google', 'baidu'].includes(auth)) {
-      let authCodeInterval;
+      let authCodeInterval: NodeJS.Timeout;
       switch (auth) {
         case 'google':
           authCodeInterval = googleAuthCodeInterval(code);
@@ -70,7 +70,7 @@
   }
 
   // 谷歌授权码定时获取
-  function googleAuthCodeInterval(code) {
+  function googleAuthCodeInterval(code: string) {
     return setInterval(async () => {
       /* Google OAuth 授权码获取 */
       if (!ThirdPartyAuthFlowDone.value) {
@@ -98,7 +98,7 @@
   }
 
   // 百度授权码定时获取
-  function baiduAuthCodeInterval(code) {
+  function baiduAuthCodeInterval(code: string) {
     return setInterval(async () => {
       /* 百度 授权码获取 */
       if (!ThirdPartyAuthFlowDone.value) {

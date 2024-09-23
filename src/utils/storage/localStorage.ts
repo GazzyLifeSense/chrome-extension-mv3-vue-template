@@ -1,4 +1,4 @@
-export function getLocal(key) {
+export function getLocal(key: string) {
   return new Promise(resolve => {
     chrome.storage.local.get(key, value => resolve(value?.[key]));
   });

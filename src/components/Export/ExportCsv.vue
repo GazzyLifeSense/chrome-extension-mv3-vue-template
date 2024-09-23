@@ -6,7 +6,7 @@
   import { ref, computed } from 'vue';
 
   import { GExportExcel } from '@/utils/excel.ts';
-  import { getExportFileName } from '@/utils/public';
+  import { getExportFileName } from '@/utils/public.ts';
 
   const props = defineProps({
     column: {
@@ -47,7 +47,7 @@
 
   defineExpose({ exportData });
 
-  function exportData(data, { filename, lineHeight, autoWidth = true, autoHeight = true }) {
+  function exportData(data: any, { filename, lineHeight, autoWidth = true, autoHeight = true }: any) {
     return new Promise((resolve, reject) => {
       if (!loading.value && columnTitles.value.length && data.length) {
         loading.value = true;
@@ -73,7 +73,7 @@
             loading.value = false;
             resolve(true);
           },
-          err => {
+          (err: any) => {
             loading.value = false;
             reject(err);
           }
@@ -83,12 +83,12 @@
       }
     });
   }
-  function getData(data) {
+  function getData(data: any) {
     let result = [];
     if (data.length > 0 && columnDataIndexes.value.length > 0) {
       result = data
-        .filter(ele => Object.keys(ele).length > 0)
-        .map((row, rowIndex) =>
+        .filter((ele: any) => Object.keys(ele).length > 0)
+        .map((row: any, rowIndex: number) =>
           columnDataIndexes.value.map((key, keyIndex) => {
             const index = props.index ? keyIndex - 1 : keyIndex;
             if (key === 'index') {
@@ -107,7 +107,7 @@
     }
     return result;
   }
-  function gExcel(params) {
+  function gExcel(params: any) {
     return new GExportExcel(params).startRun();
   }
 </script>

@@ -44,7 +44,8 @@
     {
       "resources": [
         "src/*",
-        "icon-48.png"
+        "icon-48.png",
+        "icon-128.png"
       ],
       "matches": [
         "<all_urls>"

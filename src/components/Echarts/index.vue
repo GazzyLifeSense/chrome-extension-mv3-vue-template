@@ -10,9 +10,9 @@
   import * as echarts from 'echarts';
   import { ref, shallowRef, onMounted, onBeforeUnmount, computed } from 'vue';
   import { Spin } from 'ant-design-vue';
-  import { AntColor } from '@/design/antColor';
+  import { StyleColor } from '@/enum/color.ts';
   import { throttle } from '@/utils/public.ts';
-  import { useLoadingAnimation } from '@/hooks/useLoadingAnimation';
+  import { useLoadingAnimation } from '@/hooks/useLoadingAnimation.ts';
 
   defineOptions({
     name: 'Echarts',
@@ -57,14 +57,14 @@
     // 设置loading
     setLoading();
 
-    window.addEventListener('resize', onResize);
+    window.addEventListener('resize', onResize as any);
 
     // 覆盖使用js/css进行resize的场景
     new ResizeObserver(() => myChart.value.resize()).observe(chartDom as any);
   });
 
   // 节流
-  const setOptionDebounced = throttle(async (newOption, notMerge?) => {
+  const setOptionDebounced = throttle(async (newOption: any, notMerge?: boolean) => {
     newOption && (await myChart.value.setOption(newOption, notMerge));
     if (newOption?.dataset?.source?.length || newOption?.xAxis?.data) {
       myChart.value.hideLoading();
@@ -73,17 +73,17 @@
     }
   }, throttleTime.value);
 
-  // 重绘 { width: xxx, height: xxx}
-  function onResize(params?) {
+  // 重绘
+  function onResize(params?: { width: number, height: number }) {
     myChart.value.resize(params);
   }
 
   // Loading
-  function setLoading(isEmpty?) {
+  function setLoading(isEmpty?: boolean) {
     const loading = {
       text: '加载中',
-      color: AntColor.primary,
-      textColor: AntColor.primary,
+      color: StyleColor.primary,
+      textColor: StyleColor.primary,
       lineWidth: 2,
     };
 
@@ -93,7 +93,7 @@
   }
 
   onBeforeUnmount(() => {
-    window.removeEventListener('resize', onResize);
+    window.removeEventListener('resize', onResize as any);
   });
 
   defineExpose({ setOption: setOptionDebounced, onResize, setLoading });

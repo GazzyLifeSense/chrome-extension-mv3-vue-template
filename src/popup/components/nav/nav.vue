@@ -1,4 +1,4 @@
-<script setup>
+<script lang="ts" setup>
 import { useRoute, useRouter } from 'vue-router'
 import { Tabs, TabPane } from 'ant-design-vue';
 // route钩子，返回当前的路由地址
@@ -8,7 +8,7 @@ const router = useRouter()
 // 获取当前路由path
 const path = route.path
 // Tab组件控制路由跳转
-const onTabChange = (gotoPath) => {
+const onTabChange = (gotoPath: any) => {
     router.push(gotoPath)
 }
 </script>
