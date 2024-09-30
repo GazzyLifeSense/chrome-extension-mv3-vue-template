@@ -48,7 +48,7 @@ function TestBgPost(){
             imgFieldName="mainImage"
             ref="exportDropdownRef"
         />
-        <p>
+        <p class="flex justify-evenly">
           <Button @click="TestBgGet">TestBgGet</Button>
           <Button @click="TestBgPost">TestBgPost</Button>
         </p>

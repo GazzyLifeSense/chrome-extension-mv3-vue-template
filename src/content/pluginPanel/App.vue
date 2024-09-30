@@ -7,7 +7,7 @@
 <script lang="ts" setup>
   import PluginPanel from '@/components/PluginPanel/index.vue';
   import { Component, computed, reactive, ref } from 'vue';
-  import Content from './content.vue';
+  import WebsiteInfo from '@/components/Website/WebsiteInfo.vue';
 
   defineOptions({
     name: 'pluginPanel',
@@ -18,10 +18,10 @@
     { key: string, name: string, icon?: string, component?: Component, func?: Function}
   } = reactive({
     /* 示例组件 */
-    Test: {
-      key: 'Test',
-      name: 'Test',
-      component: Content,
+    WebsiteInfo: {
+      key: 'WebsiteInfo',
+      name: 'WebsiteInfo',
+      component: WebsiteInfo,
     },
     /* 滚动到顶部  */
     ScrollToTop: {
